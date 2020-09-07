@@ -1,4 +1,7 @@
+from collections import OrderedDict
+
 from movie.data_helpers.import_helper.import_dataset import get_movie_dataset
+from movie.data_helpers.filters.filter import *
 import time
 
 # **************************************************
@@ -26,6 +29,21 @@ black_and_white_counter = sum([movie_dataset[x][0] == 'Blackand White' for x in 
 elapsed_time = time.time() - start
 
 # 209 Black and White movies - elapsed time : 6 ms
-print("Numbere of Black and White Movies : {} - Elapsed time : {}".format(black_and_white_counter, elapsed_time))
+print("Number of Black and White Movies : {} - Elapsed time : {} seconds".format(black_and_white_counter, elapsed_time))
 
 # ======================================================================================================================
+# How many movies were produced by director in the list?
+start = time.time()
+
+all_directors_list = [(movie_dataset[x][1]) for x in range(1, dataset_samples_number)]
+director_occurrences = get_histogram_of(all_directors_list)
+
+elapsed_time = time.time() - start
+
+# Director Histograms - 5.8 ms
+print("Director per movie quantity {}, \n\n Elapsed time : {} seconds ".format(director_occurrences, elapsed_time))
+
+
+
+
+
