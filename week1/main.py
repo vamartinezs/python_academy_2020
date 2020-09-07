@@ -82,9 +82,27 @@ start = time.time()
 
 all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_number)]
 titles_profit = [(all_movies_titles[k], all_movies_profit[k]) for k in range(1, dataset_samples_number-1)]
-titles_profit = list(filter(lambda k: k[0] != '', titles_profit))
-titles_profit.sort()
+titles_profit = list(filter(lambda k: k[0] != '' and k[1] != '', titles_profit))
+titles_profit.sort(key=lambda x: int(x[1]), reverse= True)
 titles_profit = titles_profit[0:5]
 
 elapsed_time = (time.time() - start)
+
+# ('CCH Pounder', '760505847'), ('Leonardo DiCaprio', '658672302'), ('Bryce Dallas Howard', '652177271'),
+# ('Chris Hemsworth', '623279547'), ('Chris Hemsworth', '623279547')]
 print("5 more profitable movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_profit, elapsed_time))
+
+# ======================================================================================================================
+# Which are the top 5 movies that made the least money in the list?
+start = time.time()
+
+titles_profit = [(all_movies_titles[k], (all_movies_profit[k])) for k in range(1, dataset_samples_number-1)]
+titles_profit = list(filter(lambda k: k[0] != '' and k[1] != '', titles_profit))
+titles_profit.sort(key=lambda x: int(x[1]), reverse=False)
+titles_profit = titles_profit[0:5]
+
+elapsed_time = (time.time() - start)
+
+# [('Michael Jai White', '162'), ('Lynn Cohen', '703'), ('David Keith', '721'),
+# ('William Kircher', '728'), ('Jim Broadbent', '828')]
+print("5 less profitable movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_profit, elapsed_time))
