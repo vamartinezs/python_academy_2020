@@ -139,13 +139,25 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 
 ## ======================================================================================================================
 # What year was the one who had more movies released ?
-start = time.time()
+#start = time.time()
 
+#all_release_year_list = [(movie_dataset[x][23]) for x in range(1, dataset_samples_number)]
+#year_occurrences = get_histogram_of(all_release_year_list)
+#year_occurrences = [(k, year_occurrences[k]) for k in sorted(year_occurrences, key=year_occurrences.get, reverse=True)]
+#year_occurrences = year_occurrences[0]
+#elapsed_time = (time.time() - start)
+
+#print("The year with more movies releases was : '\n' {} \n\nElapsed time {} seconds ".format(year_occurrences, elapsed_time))
+#('2009', 255)
+
+# What year was the one who had less movies released ?
+start = time.time()
 all_release_year_list = [(movie_dataset[x][23]) for x in range(1, dataset_samples_number)]
 year_occurrences = get_histogram_of(all_release_year_list)
-year_occurrences = [(k, year_occurrences[k]) for k in sorted(year_occurrences, key=year_occurrences.get, reverse=True)]
+year_occurrences = [(k, year_occurrences[k]) for k in sorted(year_occurrences, key=year_occurrences.get, reverse=False)]
+year_occurrences = list(filter(lambda k: k[0] != '' and k[1] != '' and len(k[0])==4, year_occurrences))
 year_occurrences = year_occurrences[0]
 elapsed_time = (time.time() - start)
 
-print("The year with more movies releases was : '\n' {} \n\nElapsed time {} seconds ".format(year_occurrences, elapsed_time))
-#('2009', 255)
+
+print("The year with less movies releases was {} with {} movie(s)".format(year_occurrences[0],year_occurrences[1]))
