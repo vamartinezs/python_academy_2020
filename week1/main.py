@@ -20,30 +20,45 @@ dataset_samples_number = len(movie_dataset)
 # ======================================================================================================================
 # - How many Black & White and color movies are in the list?
 
-start = time.time()
+#start = time.time()
 
-all_color_types = set([(movie_dataset[x][0]) for x in range(1, dataset_samples_number)])
+#all_color_types = set([(movie_dataset[x][0]) for x in range(1, dataset_samples_number)])
 # all_color_types ={'', 'Color', 'Blackand White'}
 
-black_and_white_counter = sum([(movie_dataset[x][0] == 'Blackand White' or movie_dataset[x][0] == 'Color')
-                               for x in range(1, dataset_samples_number)])
-elapsed_time = time.time() - start
+#black_and_white_counter = sum([(movie_dataset[x][0] == 'Blackand White' or movie_dataset[x][0] == 'Color')
+#                               for x in range(1, dataset_samples_number)])
+#elapsed_time = time.time() - start
 
 # 5024 Black and White and color movies are present - elapsed time : 6 ms
-print("Number of Black and White Movies : {} - Elapsed time : {} seconds".format(black_and_white_counter, elapsed_time))
+#print("Number of Black and White Movies : {} - Elapsed time : {} seconds".format(black_and_white_counter, elapsed_time))
 
 # ======================================================================================================================
 # How many movies were produced by director in the list?
-start = time.time()
+#start = time.time()
 
-all_directors_list = [(movie_dataset[x][1]) for x in range(1, dataset_samples_number)]
-director_occurrences = get_histogram_of(all_directors_list)
-director_occurrences = [(k, director_occurrences[k]) for k in sorted(director_occurrences, key=director_occurrences.get, reverse=True)]
-elapsed_time = (time.time() - start)
+#all_directors_list = [(movie_dataset[x][1]) for x in range(1, dataset_samples_number)]
+#director_occurrences = get_histogram_of(all_directors_list)
+#director_occurrences = [(k, director_occurrences[k]) for k in sorted(director_occurrences, key=director_occurrences.get, reverse=True)]
+#elapsed_time = (time.time() - start)
 
 # Director Histograms - 6.8 ms
-print("Director per movie quantity {}, \n\n Elapsed time : {} seconds ".format(director_occurrences, elapsed_time))
+#print("Director per movie quantity {}, \n\n Elapsed time : {} seconds ".format(director_occurrences, elapsed_time))
 
+# ======================================================================================================================
+# Which are the 10 less criticized movies in the list?
+
+start = time.time()
+
+all_movies_titles = [(movie_dataset[x][10]) for x in range(0, dataset_samples_number)]
+all_movies_critics = [(movie_dataset[x][2]) for x in range(0, dataset_samples_number)]
+
+titles_critics = [(all_movies_titles[k], all_movies_critics[k]) for k in range(1, dataset_samples_number-1)]
+titles_critics.sort(reverse=True)
+titles_critics = titles_critics[0:10]
+
+elapsed_time = (time.time() - start)
+
+print("10 less criticized movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_critics, elapsed_time))
 
 
 
