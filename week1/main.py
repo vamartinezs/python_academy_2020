@@ -53,6 +53,7 @@ all_movies_titles = [(movie_dataset[x][10]) for x in range(0, dataset_samples_nu
 all_movies_critics = [(movie_dataset[x][2]) for x in range(0, dataset_samples_number)]
 
 titles_critics = [(all_movies_titles[k], all_movies_critics[k]) for k in range(1, dataset_samples_number-1)]
+titles_critics = list(filter(lambda k: k[0] != '', titles_critics))
 titles_critics.sort(reverse=True)
 titles_critics = titles_critics[0:10]
 
@@ -60,6 +61,17 @@ elapsed_time = (time.time() - start)
 
 print("10 less criticized movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_critics, elapsed_time))
 
+# ======================================================================================================================
+# Which are the 20 longest-running movies in the list?
 
+start = time.time()
 
+all_movies_duration = [(movie_dataset[x][3]) for x in range(0, dataset_samples_number)]
+titles_duration = [(all_movies_titles[k], all_movies_duration[k]) for k in range(1, dataset_samples_number-1)]
+titles_duration = list(filter(lambda k: k[0] != '', titles_duration))
+titles_duration.sort()
+titles_duration = titles_duration[0:20]
+
+elapsed_time = (time.time() - start)
+print("20 longest movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_duration, elapsed_time))
 
