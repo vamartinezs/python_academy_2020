@@ -111,17 +111,17 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 # ======================================================================================================================
 # Which are the top 3 movies that expend more money to be produced in the list?
 
-start = time.time()
+#start = time.time()
 
-all_movies_budget = [(movie_dataset[x][22]) for x in range(0, dataset_samples_number)]
-titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number-1)]
-titles_budget = list(filter(lambda k: k[0] != '' and k[1] != '' and str.isdigit(k[1]), titles_budget))
-titles_budget.sort(key=lambda x: float(x[1]), reverse=True)
-titles_budget = titles_budget[0:3]
+#all_movies_budget = [(movie_dataset[x][22]) for x in range(0, dataset_samples_number)]
+#titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number-1)]
+#titles_budget = list(filter(lambda k: k[0] != '' and k[1] != '' and str.isdigit(k[1]), titles_budget))
+#titles_budget.sort(key=lambda x: float(x[1]), reverse=True)
+#titles_budget = titles_budget[0:3]
 
-elapsed_time = (time.time() - start)
+#elapsed_time = (time.time() - start)
 
-print("Top 3 more expensive movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
+#print("Top 3 more expensive movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
 #Top 3 more expensive movies : '
 #' [('The Host\xa0', '12215500000'), ('Lady Vengeance\xa0', '4200000000'), ('Fateless\xa0', '2500000000')]
 
@@ -138,5 +138,14 @@ print("Top 3 more expensive movies : '\n' {} \n\nElapsed time {} seconds ".forma
 #print("Top 3 low cost movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
 
 ## ======================================================================================================================
+# What year was the one who had more movies released ?
+start = time.time()
 
+all_release_year_list = [(movie_dataset[x][23]) for x in range(1, dataset_samples_number)]
+year_occurrences = get_histogram_of(all_release_year_list)
+year_occurrences = [(k, year_occurrences[k]) for k in sorted(year_occurrences, key=year_occurrences.get, reverse=True)]
+year_occurrences = year_occurrences[0]
+elapsed_time = (time.time() - start)
 
+print("The year with more movies releases was : '\n' {} \n\nElapsed time {} seconds ".format(year_occurrences, elapsed_time))
+#('2009', 255)
