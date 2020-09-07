@@ -25,10 +25,11 @@ start = time.time()
 all_color_types = set([(movie_dataset[x][0]) for x in range(1, dataset_samples_number)])
 # all_color_types ={'', 'Color', 'Blackand White'}
 
-black_and_white_counter = sum([movie_dataset[x][0] == 'Blackand White' for x in range(1, dataset_samples_number)])
+black_and_white_counter = sum([(movie_dataset[x][0] == 'Blackand White' or movie_dataset[x][0] == 'Color')
+                               for x in range(1, dataset_samples_number)])
 elapsed_time = time.time() - start
 
-# 209 Black and White movies - elapsed time : 6 ms
+# 5024 Black and White and color movies are present - elapsed time : 6 ms
 print("Number of Black and White Movies : {} - Elapsed time : {} seconds".format(black_and_white_counter, elapsed_time))
 
 # ======================================================================================================================
@@ -37,10 +38,10 @@ start = time.time()
 
 all_directors_list = [(movie_dataset[x][1]) for x in range(1, dataset_samples_number)]
 director_occurrences = get_histogram_of(all_directors_list)
+director_occurrences = [(k, director_occurrences[k]) for k in sorted(director_occurrences, key=director_occurrences.get, reverse=True)]
+elapsed_time = (time.time() - start)
 
-elapsed_time = time.time() - start
-
-# Director Histograms - 5.8 ms
+# Director Histograms - 6.8 ms
 print("Director per movie quantity {}, \n\n Elapsed time : {} seconds ".format(director_occurrences, elapsed_time))
 
 
