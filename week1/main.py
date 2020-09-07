@@ -125,3 +125,18 @@ print("Top 3 more expensive movies : '\n' {} \n\nElapsed time {} seconds ".forma
 #Top 3 more expensive movies : '
 #' [('The Host\xa0', '12215500000'), ('Lady Vengeance\xa0', '4200000000'), ('Fateless\xa0', '2500000000')]
 
+# ======================================================================================================================
+# Which are the top 3 movies that expend less money to be produced in the list?
+#start = time.time()
+
+#titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number-1)]
+#titles_budget = list(filter(lambda k: k[0] != '' and k[1] != '' and str.isdigit(k[1]), titles_budget))
+#titles_budget.sort(key=lambda x: float(x[1]), reverse=False)
+#titles_budget = titles_budget[0:3]
+
+#elapsed_time = (time.time() - start)
+#print("Top 3 low cost movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
+
+## ======================================================================================================================
+
+
