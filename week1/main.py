@@ -307,7 +307,7 @@ for year in years.keys():
     print("Raised more money in ", year, sorted(years[year], reverse=False)[0])
     print("Raised less money in ", year, sorted(years[year], reverse=False)[-1])
     print("==")
-:
+
 print("Elapse time in seconds : ", elapsed_time)
 # ==
 # Raised more money in  2009 Action
