@@ -80,7 +80,7 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 
 # start = time.time()
 
-# all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_number)]
+all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_number)]
 # titles_profit = [(all_movies_titles[k], all_movies_profit[k]) for k in range(1, dataset_samples_number-1)]
 # titles_profit = list(filter(lambda k: k[0] != '' and k[1] != '', titles_profit))
 # titles_profit.sort(key=lambda x: int(x[1]), reverse= True)
@@ -168,59 +168,58 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 # - Social Media Influence
 # - Best Movie
 
-#start = time.time()
+# start = time.time()
 
-#actor_1_name = [(movie_dataset[x][10]) for x in range(1, dataset_samples_number - 1)]
-#actor_1_likes = [(movie_dataset[x][7]) for x in range(1, dataset_samples_number - 1)]
-#actor_1_likes = filter_likes_crazy_values(actor_1_likes)
+# actor_1_name = [(movie_dataset[x][10]) for x in range(1, dataset_samples_number - 1)]
+# actor_1_likes = [(movie_dataset[x][7]) for x in range(1, dataset_samples_number - 1)]
+# actor_1_likes = filter_likes_crazy_values(actor_1_likes)
 
-#actor_2_name = [(movie_dataset[x][6]) for x in range(1, dataset_samples_number - 1)]
-#actor_2_likes = [(movie_dataset[x][24]) for x in range(1, dataset_samples_number - 1)]
-#actor_2_likes = filter_likes_crazy_values(actor_2_likes)
+# actor_2_name = [(movie_dataset[x][6]) for x in range(1, dataset_samples_number - 1)]
+# actor_2_likes = [(movie_dataset[x][24]) for x in range(1, dataset_samples_number - 1)]
+# actor_2_likes = filter_likes_crazy_values(actor_2_likes)
 
-#actor_3_name = [(movie_dataset[x][15]) for x in range(1, dataset_samples_number - 1)]
-#actor_3_likes = [(movie_dataset[x][5]) for x in range(1, dataset_samples_number - 1)]
-#actor_3_likes = filter_likes_crazy_values(actor_3_likes)
+# actor_3_name = [(movie_dataset[x][15]) for x in range(1, dataset_samples_number - 1)]
+# actor_3_likes = [(movie_dataset[x][5]) for x in range(1, dataset_samples_number - 1)]
+# actor_3_likes = filter_likes_crazy_values(actor_3_likes)
 
-#imb_qualification = [(movie_dataset[x][25]) for x in range(1, dataset_samples_number - 1)]
-#imb_qualification = filter_imb_crazy_values(imb_qualification[:])
+# imb_qualification = [(movie_dataset[x][25]) for x in range(1, dataset_samples_number - 1)]
+# imb_qualification = filter_imb_crazy_values(imb_qualification[:])
 
 # Create a tuple with user Attributes in the form of [name, movies, likes_number, imb ] i.e. ('Lillian Gish', 1, 0, 8.0)
-#actor_1_attributes = list(
+# actor_1_attributes = list(
 #    (actor_1_name[k], 1, int(actor_1_likes[k]) if actor_1_likes[k] else 0,
 #     float(imb_qualification[k])) for k in range(1, dataset_samples_number - 2))
 
-#actor_2_attributes = list(
+# actor_2_attributes = list(
 #    (actor_2_name[k], 1, int(actor_2_likes[k]) if actor_2_likes[k] else 0,
 #     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
 
-#actor_3_attributes = list(
+# actor_3_attributes = list(
 #    (actor_3_name[k], 1, int(actor_3_likes[k]) if actor_3_likes[k] else 0,
 #     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
 
 # Create a dictionary based on Actors Attributes
-#actors_ranking = {}
-#create_ranking_authors_from_list(actors_ranking, actor_1_attributes)
-#create_ranking_authors_from_list(actors_ranking, actor_2_attributes)
-#create_ranking_authors_from_list(actors_ranking, actor_3_attributes)
+# actors_ranking = {}
+# create_ranking_authors_from_list(actors_ranking, actor_1_attributes)
+# create_ranking_authors_from_list(actors_ranking, actor_2_attributes)
+# create_ranking_authors_from_list(actors_ranking, actor_3_attributes)
 
 # Sorted by Number of movies, Social Influence and iMB movie qualification
-#filter_dictionary_keys_as_numbers(actors_ranking)
-#actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3]), reverse=True)]
+# filter_dictionary_keys_as_numbers(actors_ranking)
+# actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3]), reverse=True)]
 
-#elapsed_time = (time.time() - start)
+# elapsed_time = (time.time() - start)
 
-#print("Actor ranking : ")
-#for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
-#print("Elapsed time : ", elapsed_time)
+# print("Actor ranking : ")
+# for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
+# print("Elapsed time : ", elapsed_time)
 
-#Actor ranking :
-#('Robert De Niro', 54, 1188000, 7.118836910088769)
-#('Morgan Freeman', 45, 495000, 7.8965078860196005)
-#('Johnny Depp', 41, 1640000, 6.568560059206175)
-#('Bruce Willis', 39, 507000, 6.231539757813152)
-#Elapsed time : 0.08010411262512207
-
+# Actor ranking :
+# ('Robert De Niro', 54, 1188000, 7.118836910088769)
+# ('Morgan Freeman', 45, 495000, 7.8965078860196005)
+# ('Johnny Depp', 41, 1640000, 6.568560059206175)
+# ('Bruce Willis', 39, 507000, 6.231539757813152)
+# Elapsed time : 0.08010411262512207
 
 
 ## ======================================================================================================================
@@ -228,38 +227,94 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 # Create a “tag cloud” using tags or keywords of the movie: To do this you can create an ordered ranking
 # of the number of word occurrences.
 
-start = time.time()
+# start = time.time()
 
 # Filter titles
-all_movies_titles = str(''.join(all_movies_titles)).strip('[]').replace('\\xa0', ' ').replace(" \\' "," ").replace("  ", " ")
+# all_movies_titles = str(''.join(all_movies_titles)).strip('[]').replace('\\xa0', ' ').replace(" \\' "," ").replace("  ", " ")
 
-str_list = all_movies_titles.split()
+# str_list = all_movies_titles.split()
 
 # Gives set of unique words
-unique_words = set(str_list)
-words_ocurrences = {}
+# unique_words = set(str_list)
+# words_ocurrences = {}
 
-for words in unique_words:
-     words_ocurrences[words] = str_list.count(words)
-words_ocurrences = {k: v for k, v in sorted(words_ocurrences.items(), key=lambda item: item[1], reverse= True)}
+# for words in unique_words:
+#     words_ocurrences[words] = str_list.count(words)
+# words_ocurrences = {k: v for k, v in sorted(words_ocurrences.items(), key=lambda item: item[1], reverse= True)}
 
+
+# elapsed_time = (time.time() - start)
+
+# print("Ordered raking based on Keywords Titles recurrences")
+# for i in words_ocurrences :
+#     print(i, words_ocurrences[i])
+
+# print("Elapsed time : ", elapsed_time)
+# The 1123
+# of 481
+# the 455
+# and 138
+# A 101
+# in 100
+# to 99
+# Elapsed time :  1.029115915298462
+
+
+## ======================================================================================================================
+# What movie genre raised more money per year?
+# What movie genre raised less money per year?
+
+start = time.time()
+
+all_movies_genres = [(movie_dataset[x][9]) for x in range(0, dataset_samples_number)]
+all_movies_profit = all_movies_profit
+all_movies_year = [(movie_dataset[x][23]) for x in range(0, dataset_samples_number)]
+
+genre_profit_year = [(all_movies_genres[x], all_movies_profit[x], all_movies_year[x]) for x in
+                     range(1, len(all_movies_genres))]
+# Clearing Empty fields
+filtered = []
+for item in genre_profit_year:
+    if item[0] != '' and item[1] != '' and item[2] != '' and len(item[2]) == 4:
+        filtered.append([item[0], item[1], item[2]])
+
+
+# Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
+total_data = []
+
+for i, v in enumerate(filtered):
+    s = str(filtered[i][0]).split("|")
+    if len(s) == 1:
+        total_data.append((s[0], filtered[i][1], filtered[i][2]))
+    else:
+        for i in range(filtered[i][0].count("|")):
+            total_data.append((s[i], filtered[i][1], filtered[i][2]))
+
+years = {}
+for i,genre_profit in enumerate(total_data):
+    if genre_profit[2] in years:
+        if genre_profit[1] in years:
+            years[genre_profit[2]][genre_profit[0]] = years[genre_profit[2]][genre_profit[0]] + genre_profit[1]
+        else:
+            years[genre_profit[2]][genre_profit[0]] = genre_profit[1]
+    else:
+        years[genre_profit[2]] = {genre_profit[0]:genre_profit[1]}
 
 elapsed_time = (time.time() - start)
 
-print("Ordered raking based on Keywords Titles recurrences")
-for i in words_ocurrences :
-     print(i, words_ocurrences[i])
-
-print("Elapsed time : ", elapsed_time)
-#The 1123
-#of 481
-#the 455
-#and 138
-#A 101
-#in 100
-#to 99
-#Elapsed time :  1.029115915298462
-
-
-
+for year in years.keys():
+    print("==")
+    print("Raised more money in ", year, sorted(years[year], reverse=False)[0])
+    print("Raised less money in ", year, sorted(years[year], reverse=False)[-1])
+    print("==")
+:
+print("Elapse time in seconds : ", elapsed_time)
+# ==
+# Raised more money in  2009 Action
+# Raised less money in  2009 Sci-Fi
+# ==
+# ==
+# Raised more money in  2007 Adventure
+# Raised less money in  2007 Western
+# ==
 
