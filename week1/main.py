@@ -210,10 +210,13 @@ actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3
 
 elapsed_time = (time.time() - start)
 
-for actor in actors_ranking[0][:4]: print(actor)
-print("Elapsed time :",elapsed_time)
+print("Actor ranking : ")
+for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
+print("Elapsed time : ", elapsed_time)
 
+#Actor ranking :
 #('Robert De Niro', 54, 1188000, 7.118836910088769)
 #('Morgan Freeman', 45, 495000, 7.8965078860196005)
 #('Johnny Depp', 41, 1640000, 6.568560059206175)
 #('Bruce Willis', 39, 507000, 6.231539757813152)
+#Elapsed time : 0.08010411262512207
