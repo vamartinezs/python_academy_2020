@@ -135,6 +135,7 @@ all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_num
 # titles_budget = titles_budget[0:3]
 
 # elapsed_time = (time.time() - start)
+# == Result
 # print("Top 3 low cost movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
 
 # ======================================================================================================================
@@ -159,7 +160,7 @@ all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_num
 # year_occurrences = year_occurrences[0]
 # elapsed_time = (time.time() - start)
 
-
+# == Result
 # print("The year with less movies releases was {} with {} movie(s)".format(year_occurrences[0],year_occurrences[1]))
 
 ## ======================================================================================================================
@@ -214,6 +215,7 @@ all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_num
 # for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
 # print("Elapsed time : ", elapsed_time)
 
+# == Result
 # Actor ranking :
 # ('Robert De Niro', 54, 1188000, 7.118836910088769)
 # ('Morgan Freeman', 45, 495000, 7.8965078860196005)
@@ -249,6 +251,7 @@ all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_num
 # for i in words_ocurrences :
 #     print(i, words_ocurrences[i])
 
+# == Result
 # print("Elapsed time : ", elapsed_time)
 # The 1123
 # of 481
@@ -264,19 +267,76 @@ all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_num
 # What movie genre raised more money per year?
 # What movie genre raised less money per year?
 
-start = time.time()
+#start = time.time()
 
 all_movies_genres = [(movie_dataset[x][9]) for x in range(0, dataset_samples_number)]
-all_movies_profit = all_movies_profit
-all_movies_year = [(movie_dataset[x][23]) for x in range(0, dataset_samples_number)]
+#all_movies_profit = all_movies_profit
+#all_movies_year = [(movie_dataset[x][23]) for x in range(0, dataset_samples_number)]
 
-genre_profit_year = [(all_movies_genres[x], all_movies_profit[x], all_movies_year[x]) for x in
-                     range(1, len(all_movies_genres))]
+#genre_profit_year = [(all_movies_genres[x], all_movies_profit[x], all_movies_year[x]) for x in
+#                     range(1, len(all_movies_genres))]
+# Clearing Empty fields
+#filtered = []
+#for item in genre_profit_year:
+#    if item[0] != '' and item[1] != '' and item[2] != '' and len(item[2]) == 4:
+#        filtered.append([item[0], item[1], item[2]])
+
+
+# Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
+#total_data = []
+
+#for i, v in enumerate(filtered):
+#    s = str(filtered[i][0]).split("|")
+#    if len(s) == 1:
+#        total_data.append((s[0], filtered[i][1], filtered[i][2]))
+#    else:
+#        for i in range(filtered[i][0].count("|")):
+#            total_data.append((s[i], filtered[i][1], filtered[i][2]))
+
+#years = {}
+#for i,genre_profit in enumerate(total_data):
+#    if genre_profit[2] in years:
+#        if genre_profit[1] in years:
+#            years[genre_profit[2]][genre_profit[0]] = years[genre_profit[2]][genre_profit[0]] + genre_profit[1]
+#        else:
+#            years[genre_profit[2]][genre_profit[0]] = genre_profit[1]
+#    else:
+#        years[genre_profit[2]] = {genre_profit[0]:genre_profit[1]}
+
+#elapsed_time = (time.time() - start)
+
+#for year in years.keys():
+#    print("==")
+#    print("Raised more money in ", year, sorted(years[year], reverse=False)[0])
+#    print("Raised less money in ", year, sorted(years[year], reverse=False)[-1])
+#    print("==")
+
+#print("Elapse time in seconds : ", elapsed_time)
+
+# == Result
+# Raised more money in  2009 Action
+# Raised less money in  2009 Sci-Fi
+# ==
+# ==
+# Raised more money in  2007 Adventure
+# Raised less money in  2007 Western
+# ==
+
+## ======================================================================================================================
+# What movie genre does the public like most?
+
+start = time.time()
+
+all_movies_genres = all_movies_genres
+all_facebook_likes = [(movie_dataset[x][13]) for x in range(0, dataset_samples_number)]
+
+genre_likes = [(all_movies_genres[x], all_facebook_likes[x]) for x in range(1, len(all_movies_genres))]
+
 # Clearing Empty fields
 filtered = []
-for item in genre_profit_year:
-    if item[0] != '' and item[1] != '' and item[2] != '' and len(item[2]) == 4:
-        filtered.append([item[0], item[1], item[2]])
+for item in genre_likes:
+    if item[0] != '' and item[1] != '':
+        filtered.append([item[0], int(item[1]) if str.isdigit(item[1]) else 0])
 
 
 # Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
@@ -285,36 +345,32 @@ total_data = []
 for i, v in enumerate(filtered):
     s = str(filtered[i][0]).split("|")
     if len(s) == 1:
-        total_data.append((s[0], filtered[i][1], filtered[i][2]))
+        total_data.append((s[0], filtered[i][1]))
     else:
         for i in range(filtered[i][0].count("|")):
-            total_data.append((s[i], filtered[i][1], filtered[i][2]))
+            total_data.append((s[i], filtered[i][1]))
 
-years = {}
-for i,genre_profit in enumerate(total_data):
-    if genre_profit[2] in years:
-        if genre_profit[1] in years:
-            years[genre_profit[2]][genre_profit[0]] = years[genre_profit[2]][genre_profit[0]] + genre_profit[1]
-        else:
-            years[genre_profit[2]][genre_profit[0]] = genre_profit[1]
+
+genres_collection = {}
+for i, genre_likes in enumerate(total_data):
+    if genre_likes[0] in genres_collection:
+        genres_collection[genre_likes[0]] += genre_likes[1]
     else:
-        years[genre_profit[2]] = {genre_profit[0]:genre_profit[1]}
+        genres_collection[genre_likes[0]] = genre_likes[1]
 
 elapsed_time = (time.time() - start)
+print("More Liked Movies by the Community ")
 
-for year in years.keys():
-    print("==")
-    print("Raised more money in ", year, sorted(years[year], reverse=False)[0])
-    print("Raised less money in ", year, sorted(years[year], reverse=False)[-1])
-    print("==")
+for k in sorted(genres_collection, key=genres_collection.get, reverse=True):
+    print(k, genres_collection[k])
 
-print("Elapse time in seconds : ", elapsed_time)
-# ==
-# Raised more money in  2009 Action
-# Raised less money in  2009 Sci-Fi
-# ==
-# ==
-# Raised more money in  2007 Adventure
-# Raised less money in  2007 Western
-# ==
+print("Elapse timme in seconds ", elapsed_time)
+
+# == Result ==
+# Drama 55762519
+# Comedy 27172616
+# Adventure 24387570
+# Crime 20474813
+# Family 19189809
+# Mystery 15435951
 
