@@ -168,51 +168,51 @@ all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_nu
 # - Social Media Influence
 # - Best Movie
 
-start = time.time()
+#start = time.time()
 
-actor_1_name = [(movie_dataset[x][10]) for x in range(1, dataset_samples_number - 1)]
-actor_1_likes = [(movie_dataset[x][7]) for x in range(1, dataset_samples_number - 1)]
-actor_1_likes = filter_likes_crazy_values(actor_1_likes)
+#actor_1_name = [(movie_dataset[x][10]) for x in range(1, dataset_samples_number - 1)]
+#actor_1_likes = [(movie_dataset[x][7]) for x in range(1, dataset_samples_number - 1)]
+#actor_1_likes = filter_likes_crazy_values(actor_1_likes)
 
-actor_2_name = [(movie_dataset[x][6]) for x in range(1, dataset_samples_number - 1)]
-actor_2_likes = [(movie_dataset[x][24]) for x in range(1, dataset_samples_number - 1)]
-actor_2_likes = filter_likes_crazy_values(actor_2_likes)
+#actor_2_name = [(movie_dataset[x][6]) for x in range(1, dataset_samples_number - 1)]
+#actor_2_likes = [(movie_dataset[x][24]) for x in range(1, dataset_samples_number - 1)]
+#actor_2_likes = filter_likes_crazy_values(actor_2_likes)
 
-actor_3_name = [(movie_dataset[x][15]) for x in range(1, dataset_samples_number - 1)]
-actor_3_likes = [(movie_dataset[x][5]) for x in range(1, dataset_samples_number - 1)]
-actor_3_likes = filter_likes_crazy_values(actor_3_likes)
+#actor_3_name = [(movie_dataset[x][15]) for x in range(1, dataset_samples_number - 1)]
+#actor_3_likes = [(movie_dataset[x][5]) for x in range(1, dataset_samples_number - 1)]
+#actor_3_likes = filter_likes_crazy_values(actor_3_likes)
 
-imb_qualification = [(movie_dataset[x][25]) for x in range(1, dataset_samples_number - 1)]
-imb_qualification = filter_imb_crazy_values(imb_qualification[:])
+#imb_qualification = [(movie_dataset[x][25]) for x in range(1, dataset_samples_number - 1)]
+#imb_qualification = filter_imb_crazy_values(imb_qualification[:])
 
 # Create a tuple with user Attributes in the form of [name, movies, likes_number, imb ] i.e. ('Lillian Gish', 1, 0, 8.0)
-actor_1_attributes = list(
-    (actor_1_name[k], 1, int(actor_1_likes[k]) if actor_1_likes[k] else 0,
-     float(imb_qualification[k])) for k in range(1, dataset_samples_number - 2))
+#actor_1_attributes = list(
+#    (actor_1_name[k], 1, int(actor_1_likes[k]) if actor_1_likes[k] else 0,
+#     float(imb_qualification[k])) for k in range(1, dataset_samples_number - 2))
 
-actor_2_attributes = list(
-    (actor_2_name[k], 1, int(actor_2_likes[k]) if actor_2_likes[k] else 0,
-     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
+#actor_2_attributes = list(
+#    (actor_2_name[k], 1, int(actor_2_likes[k]) if actor_2_likes[k] else 0,
+#     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
 
-actor_3_attributes = list(
-    (actor_3_name[k], 1, int(actor_3_likes[k]) if actor_3_likes[k] else 0,
-     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
+#actor_3_attributes = list(
+#    (actor_3_name[k], 1, int(actor_3_likes[k]) if actor_3_likes[k] else 0,
+#     imb_qualification[k]) for k in range(1, dataset_samples_number - 2))
 
 # Create a dictionary based on Actors Attributes
-actors_ranking = {}
-create_ranking_authors_from_list(actors_ranking, actor_1_attributes)
-create_ranking_authors_from_list(actors_ranking, actor_2_attributes)
-create_ranking_authors_from_list(actors_ranking, actor_3_attributes)
+#actors_ranking = {}
+#create_ranking_authors_from_list(actors_ranking, actor_1_attributes)
+#create_ranking_authors_from_list(actors_ranking, actor_2_attributes)
+#create_ranking_authors_from_list(actors_ranking, actor_3_attributes)
 
 # Sorted by Number of movies, Social Influence and iMB movie qualification
-filter_dictionary_keys_as_numbers(actors_ranking)
-actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3]), reverse=True)]
+#filter_dictionary_keys_as_numbers(actors_ranking)
+#actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3]), reverse=True)]
 
-elapsed_time = (time.time() - start)
+#elapsed_time = (time.time() - start)
 
-print("Actor ranking : ")
-for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
-print("Elapsed time : ", elapsed_time)
+#print("Actor ranking : ")
+#for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
+#print("Elapsed time : ", elapsed_time)
 
 #Actor ranking :
 #('Robert De Niro', 54, 1188000, 7.118836910088769)
@@ -220,3 +220,46 @@ print("Elapsed time : ", elapsed_time)
 #('Johnny Depp', 41, 1640000, 6.568560059206175)
 #('Bruce Willis', 39, 507000, 6.231539757813152)
 #Elapsed time : 0.08010411262512207
+
+
+
+## ======================================================================================================================
+
+# Create a “tag cloud” using tags or keywords of the movie: To do this you can create an ordered ranking
+# of the number of word occurrences.
+
+start = time.time()
+
+# Filter titles
+all_movies_titles = str(''.join(all_movies_titles)).strip('[]').replace('\\xa0', ' ').replace(" \\' "," ").replace("  ", " ")
+
+str_list = all_movies_titles.split()
+
+# Gives set of unique words
+unique_words = set(str_list)
+words_ocurrences = {}
+
+for words in unique_words:
+     words_ocurrences[words] = str_list.count(words)
+words_ocurrences = {k: v for k, v in sorted(words_ocurrences.items(), key=lambda item: item[1], reverse= True)}
+
+
+elapsed_time = (time.time() - start)
+
+print("Ordered raking based on Keywords Titles recurrences")
+for i in words_ocurrences :
+     print(i, words_ocurrences[i])
+
+print("Elapsed time : ", elapsed_time)
+#The 1123
+#of 481
+#the 455
+#and 138
+#A 101
+#in 100
+#to 99
+#Elapsed time :  1.029115915298462
+
+
+
+
