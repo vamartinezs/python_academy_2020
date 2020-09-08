@@ -325,46 +325,46 @@ all_movies_genres = [(movie_dataset[x][9]) for x in range(0, dataset_samples_num
 ## ======================================================================================================================
 # What movie genre does the public like most?
 
-start = time.time()
+#start = time.time()
 
-all_movies_genres = all_movies_genres
-all_facebook_likes = [(movie_dataset[x][13]) for x in range(0, dataset_samples_number)]
+#all_movies_genres = all_movies_genres
+#all_facebook_likes = [(movie_dataset[x][13]) for x in range(0, dataset_samples_number)]
 
-genre_likes = [(all_movies_genres[x], all_facebook_likes[x]) for x in range(1, len(all_movies_genres))]
+#genre_likes = [(all_movies_genres[x], all_facebook_likes[x]) for x in range(1, len(all_movies_genres))]
 
 # Clearing Empty fields
-filtered = []
-for item in genre_likes:
-    if item[0] != '' and item[1] != '':
-        filtered.append([item[0], int(item[1]) if str.isdigit(item[1]) else 0])
+#filtered = []
+#for item in genre_likes:
+#    if item[0] != '' and item[1] != '':
+#        filtered.append([item[0], int(item[1]) if str.isdigit(item[1]) else 0])
 
 
 # Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
-total_data = []
+#total_data = []
 
-for i, v in enumerate(filtered):
-    s = str(filtered[i][0]).split("|")
-    if len(s) == 1:
-        total_data.append((s[0], filtered[i][1]))
-    else:
-        for i in range(filtered[i][0].count("|")):
-            total_data.append((s[i], filtered[i][1]))
+#for i, v in enumerate(filtered):
+#    s = str(filtered[i][0]).split("|")
+#    if len(s) == 1:
+#        total_data.append((s[0], filtered[i][1]))
+#    else:
+#        for i in range(filtered[i][0].count("|")):
+#            total_data.append((s[i], filtered[i][1]))
 
 
-genres_collection = {}
-for i, genre_likes in enumerate(total_data):
-    if genre_likes[0] in genres_collection:
-        genres_collection[genre_likes[0]] += genre_likes[1]
-    else:
-        genres_collection[genre_likes[0]] = genre_likes[1]
+#genres_collection = {}
+#for i, genre_likes in enumerate(total_data):
+#    if genre_likes[0] in genres_collection:
+#        genres_collection[genre_likes[0]] += genre_likes[1]
+#    else:
+#        genres_collection[genre_likes[0]] = genre_likes[1]
 
-elapsed_time = (time.time() - start)
-print("More Liked Movies by the Community ")
+#elapsed_time = (time.time() - start)
+#print("More Liked Movies by the Community ")
 
-for k in sorted(genres_collection, key=genres_collection.get, reverse=True):
-    print(k, genres_collection[k])
+#for k in sorted(genres_collection, key=genres_collection.get, reverse=True):
+#    print(k, genres_collection[k])
 
-print("Elapse timme in seconds ", elapsed_time)
+#print("Elapse timme in seconds ", elapsed_time)
 
 # == Result ==
 # Drama 55762519
@@ -374,3 +374,38 @@ print("Elapse timme in seconds ", elapsed_time)
 # Family 19189809
 # Mystery 15435951
 
+## ======================================================================================================================
+# Which are the top five best reputation directors?
+
+start = time.time()
+
+all_directors_list = [(movie_dataset[x][1]) for x in range(0, dataset_samples_number)]
+all_critics_list = [(movie_dataset[x][2]) for x in range(0, dataset_samples_number)]
+
+directors_critics = [(all_directors_list[x], int(all_critics_list[x]) if str.isdigit(all_critics_list[x]) else 0)
+                     for x in range(1, len(all_directors_list))]
+
+directors_collection = {}
+
+for i, v in enumerate(directors_critics):
+    if v[0] in directors_collection:
+        directors_collection[v[0]] = directors_collection[v[0]]+v[1]
+    else:
+        directors_collection[v[0]] = v[1]
+
+elapsed_time = (time.time() - start)
+
+for k in sorted(directors_collection, key= directors_collection.get, reverse= True):
+    print(k, directors_collection[k])
+
+print("The Top five Directors are : ")
+print("Elapse time in seconds", elapsed_time)
+
+# Steven Spielberg 6582
+# Ridley Scott 4930
+# Peter Jackson 4542
+# Martin Scorsese 4285
+# Clint Eastwood 4244
+# Tim Burton 4200
+# Christopher Nolan 4090
+# Steven Soderbergh 3934
