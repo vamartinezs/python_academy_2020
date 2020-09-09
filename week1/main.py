@@ -60,6 +60,9 @@ titles_critics = titles_critics[0:10]
 elapsed_time = (time.time() - start)
 
 print("10 less criticized movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_critics, elapsed_time))
+#10 less criticized movies are : '
+#' [('Godzilla Resurgence\xa0', '1'), ('Harry Potter and the Deathly Hallows: Part II\xa0', '1'), ('Godzilla Resurgence\xa0', '1'), ('Ben-Hur\xa0', '1'), ('Ben-Hur\xa0', '1'), ('The Border\xa0            ', '1'), ('10 Days in a Madhouse\xa0', '1'), ('The Bold and the Beautiful\xa0            ', '1'), ('Barfi\xa0', '1'), ('Ben-Hur\xa0', '1')]
+#Elapsed time 0.012679100036621094 seconds
 
 # ======================================================================================================================
 # Which are the 20 longest-running movies in the list?
