@@ -105,64 +105,51 @@ a 84
 
 Elapsed time :  1.029115915298462 Seconds
 
-## What movie genre raised more money per year?
-## What movie genre raised less money per year?
+#### What movie genre raised more money per year?
 
-==
-Raised more money in  2009 Action
-Raised less money in  2009 Sci-Fi
-==
-==
-Raised more money in  2007 Adventure
-Raised less money in  2007 Western
-==
-==
-Raised more money in  2015 Animation
-Raised less money in  2015 Western
-==
-==
-Raised more money in  2012 Action
-Raised less money in  2012 War
-==
-==
-Raised more money in  2004 Adventure
-Raised less money in  2004 Drama
-==
-==
-Raised more money in  1997 Action
-Raised less money in  1997 Sci-Fi
-==
-==
-Raised more money in  2011 Comedy
-Raised less money in  2011 Horror
-==
-==
-Raised more money in  1992 Action
-Raised less money in  1992 Drama
-==
-==
-Raised more money in  2013 Comedy
-Raised less money in  2013 Thriller
-==
-==
-Raised more money in  2010 Comedy
-Raised less money in  2010 Sci-Fi
-==
-==
-Raised more money in  2008 Action
-Raised less money in  2008 Horror
-==
-==
-Raised more money in  2003 Action
-Raised less money in  2003 Horror
-==
-==
-Raised more money in  1999 Comedy
-Raised less money in  1999 Horror
-==
-==
-Raised more money in  1998 Comedy
-Raised less money in  1998 Drama
+#### What movie genre raised less money per year?
+
+- Raised more money in  2009 Action
+- Raised less money in  2009 Sci-Fi
+
+- Raised more money in  2007 Adventure
+- Raised less money in  2007 Western
+
+- Raised more money in  2015 Animation
+- Raised less money in  2015 Western
+
+- Raised more money in  2012 Action
+- Raised less money in  2012 War
+
+- Raised more money in  2004 Adventure
+- Raised less money in  2004 Drama
+
+- Raised more money in  1997 Action
+- Raised less money in  1997 Sci-Fi
+
+- Raised more money in  2011 Comedy
+- Raised less money in  2011 Horror
+
+- Raised more money in  1992 Action
+- Raised less money in  1992 Drama
+
+- Raised more money in  2013 Comedy
+- Raised less money in  2013 Thriller
+
+- Raised more money in  2010 Comedy
+- Raised less money in  2010 Sci-Fi
+
+- Raised more money in  2008 Action
+- Raised less money in  2008 Horror
+
+- Raised more money in  2003 Action
+- Raised less money in  2003 Horror
+
+- Raised more money in  1999 Comedy
+- Raised less money in  1999 Horror
+
+- Raised more money in  1998 Comedy
+- Raised less money in  1998 Drama
 
 Elapse time in seconds :  0.021592140197753906
 
