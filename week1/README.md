@@ -155,36 +155,66 @@ Elapse time in seconds :  0.021592140197753906
 
 #### What movie genre does the public like most?
 More Liked Movies by the Community 
+
 Drama 55762519
+
 Comedy 27172616
+
 Adventure 24387570
+
 Crime 20474813
+
 Family 19189809
+
 Mystery 15435951
+
 Fantasy 12252970
+
 Horror 11698541
+
 Romance 10064550
+
 Sci-Fi 9836726
+
 Animation 7744928
+
 History 6414301
+
 Action 5800364
+
 Music 4051801
+
 Biography 3000926
+
 Thriller 2216522
+
 Musical 1768012
+
 Documentary 1127952
+
 Western 583027
+
 War 143643
+
 Film-Noir 113234
+
 Reality-TV 60050
+
 Sport 58643
+
 Short 11700
+
 Game-Show 4834
+
 Elapse timme in seconds  0.029370784759521484
 
 #### Which are the top five best reputation directors?
 Steven Spielberg 6582
+
 Ridley Scott 4930
+
 Peter Jackson 4542
+
 Martin Scorsese 4285
+
 Clint Eastwood 4244
