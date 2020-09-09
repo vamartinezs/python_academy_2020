@@ -108,8 +108,8 @@ elapsed_time = (time.time() - start)
 
 print("5 less profitable movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_profit, elapsed_time))
 # == Result ==
-# [('Michael Jai White', '162'), ('Lynn Cohen', '703'), ('David Keith', '721'),
-# ('William Kircher', '728'), ('Jim Broadbent', '828')]
+# ' [('Skin Trade\xa0', '162'), ('The Jimmy Show\xa0', '703'), ('In Her Line of Fire\xa0', '721'),
+# ('Out of the Blue\xa0', '728'), ("Perrier's Bounty\xa0", '828')]
 
 
 # ======================================================================================================================
@@ -166,7 +166,7 @@ elapsed_time = (time.time() - start)
 
 # == Result
 print("The year with less movies releases was {} with {} movie(s)".format(year_occurrences[0],year_occurrences[1]))
-
+print("Elapse time in Seconds ", elapsed_time)
 ## ======================================================================================================================
 # Create a actor ranking ordered by number of performances by:
 # - Number of movies where the actor performed
@@ -255,8 +255,9 @@ print("Ordered raking based on Keywords Titles recurrences")
 for i in words_ocurrences :
      print(i, words_ocurrences[i])
 
+
 # == Result
-# print("Elapsed time : ", elapsed_time)
+print("Elapsed time : ", elapsed_time)
 # The 1123
 # of 481
 # the 455
