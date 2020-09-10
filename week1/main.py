@@ -24,7 +24,7 @@ print("- How many Black & White and color movies are in the list?")
 start = time.time()
 
 all_color_types = set([(movie_dataset[x][0]) for x in range(1, dataset_samples_number)])
-all_color_types = {'', 'Color', 'Blackand White'}
+#all_color_types = {'', 'Color', 'Blackand White'}
 
 black_and_white_counter = sum([(movie_dataset[x][0] == 'Blackand White' or movie_dataset[x][0] == 'Color')
                                for x in range(1, dataset_samples_number)])
@@ -404,6 +404,56 @@ print("Elapse time in seconds : ", elapsed_time)
 # Raised more money in  2007 Adventure
 # Raised less money in  2007 Western
 # ==
+
+
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print(" Top five ranking of actors by performance and popularity")
+
+start = time.time()
+
+all_actors_list_1 = [(movie_dataset[x][10]) for x in range(1, dataset_samples_number-1)]
+all_actors_Likes_1 = [(movie_dataset[x][7]) for x in range(1, dataset_samples_number-1)]
+
+all_actors_list_2 = [(movie_dataset[x][6]) for x in range(1, dataset_samples_number-1)]
+all_actors_Likes_2 = [(movie_dataset[x][24]) for x in range(1, dataset_samples_number-1)]
+
+all_actors_list_3 = [(movie_dataset[x][14]) for x in range(1, dataset_samples_number-1)]
+all_actors_Likes_3 = [(movie_dataset[x][5]) for x in range(1, dataset_samples_number-1)]
+
+all_imb_scores = [(movie_dataset[x][25]) for x in range(1, dataset_samples_number-1)]
+
+actors_likes_performance = list(zip(all_actors_list_1,all_actors_Likes_1,all_imb_scores)) + \
+                           list(zip(all_actors_list_2,all_actors_Likes_2,all_imb_scores)) + \
+                           list(zip(all_actors_list_3, all_actors_Likes_3, all_imb_scores))
+
+actors_data_collection = {}
+
+for i in actors_likes_performance :
+    val_likes = int(i[1]) if (str.isdigit(i[1])) else 0
+    val_imb =  float(i[2]) if i[2] != '' and float(i[2]) < 10 else 0
+    if i[0] in actors_data_collection:
+        actors_data_collection[i[0]] = (actors_data_collection[i[0]][0] + val_likes,
+                                        (actors_data_collection[i[0]][1] + val_imb)/2)
+    else:
+        actors_data_collection[i[0]] = (val_likes,val_imb)
+
+
+counter = 0
+for k,v in (sorted(actors_data_collection.items(),key= lambda x:(x[1][0], x[1][1]), reverse=True)):
+    if counter == 5: break
+    print(k,v)
+    counter += 1
+
+elapsed_time = (time.time() - start)
+print("Elapse time in seconds : ", elapsed_time)
+
+# ==== Result ======
+# Top five ranking of actors by performance and popularity
+# Emma Stone (50195000, 3.50250244140625)
+# Woo-sung Jung (10000149, 3.45)
+# Johnny Depp (1640000, 6.568560059206175)
+# Robin Williams (1323000, 6.438453915715218
 
 # ======================================================================================================================
 print(" ==============================================================================================================")
