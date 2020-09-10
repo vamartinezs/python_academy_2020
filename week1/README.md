@@ -59,26 +59,25 @@ Elapse time in Seconds 0.014646053314208984
 Trapped              : 511 : <br/>  
 Carlos              : 334 :  <br/>
 "Blood In : 330 :  <br/>
-Heaven's Gate  : 325 :  
-The Legend of Suriyothai  : 300 :  
-Das Boot  : 293 :  
-Apocalypse Now  : 289 :  
-The Company              : 286 :  
-Gods and Generals  : 280 :  
-Gettysburg  : 271 :  
-Arn: The Knight Templar  : 270 :  
-Cleopatra  : 251 :  
-Once Upon a Time in America  : 251 :  
-The Wolf of Wall Street  : 240 :  
-Gandhi  : 240 :  
-Emma              : 240 :  
-Dances with Wolves  : 236 :  
-Lawrence of Arabia  : 227 :  
-Gone with the Wind  : 226 :  
-The Greatest Story Ever Told  : 225 :  
+Heaven's Gate  : 325 :  <br/>
+The Legend of Suriyothai  : 300 :  <br/>
+Das Boot  : 293 :  <br/>
+Apocalypse Now  : 289 : <br/> 
+The Company              : 286 :  <br/>
+Gods and Generals  : 280 :  <br/>
+Gettysburg  : 271 :  <br/>
+Arn: The Knight Templar  : 270 :  <br/>
+Cleopatra  : 251 :  <br/>
+Once Upon a Time in America  : 251 :  <br/>
+The Wolf of Wall Street  : 240 :  <br/>
+Gandhi  : 240 :  <br/>
+Emma              : 240 :  <br/>
+Dances with Wolves  : 236 :  <br/>
+Lawrence of Arabia  : 227 :  <br/>
+Gone with the Wind  : 226 :  <br/>
+The Greatest Story Ever Told  : 225 :  <br/>
+<br/>
 Elapsed time 0.006849050521850586 seconds 
-
-Elapsed time 0.0059680938720703125 seconds 
 
 #### Which are the top 5 movies that raised more money in the list?
 Avatar  : 760505847 :  <br/>
@@ -95,7 +94,6 @@ In Her Line of Fire  : 721 :  <br/>
 Out of the Blue  : 728 :  <br/>
 Perrier's Bounty  : 828 :  <br/>
 Elapsed time 0.004686832427978516 seconds <br/>
-Elapsed time 0.004220724105834961 seconds <br/>
 
 #### Which are the top 3 movies that expend more money to be produced in the list?
 Top 3 more expensive movies : <br/>
@@ -114,7 +112,7 @@ Elapsed time 0.004731893539428711 seconds <br/>
 The year with more movies releases was : <br/>
 ' ('2009', 255) <br/>
 
-Elapsed time 0.002627134323120117 seconds 
+Elapsed time 0.002627134323120117 seconds <br/>
 
 #### What year was the one who had less movies released ?
 The year with less movies releases was 1927 with 1 movie(s) <br/>
@@ -125,7 +123,7 @@ Elapse time in Seconds  0.0018129348754882812 <br/>
 #### - Social Media Influence
 #### - Best Movie
 
-The algirthm consisted on summing up the quantity of times the actor appeared in different movies as principal, secondary and beyond. The Likes were summed but the IMB qualification was calculated with the average on the different results. 
+The algirthm consisted on summing up the quantity of times the actor appeared in different movies as principal, secondary and beyond. The Likes were summed but the IMB qualification was calculated with the average on the different results. <br/>
 
 Actor ranking : <br/>
 ('Robert De Niro', 54, 1188000, 7.118836910088769) <br/>
