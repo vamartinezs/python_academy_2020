@@ -9,20 +9,19 @@
 - **impor_helper:**  Importing helper functions.
 
 ## Exercise 
-**Note**: Some results presented errors importing the dataset as not all data had an ending quotechar in 'whiteSpace'. This is why some data  values may present different results.
+**Note**: Some data samples contained errors or different format ending. Specifically, while importing the dataset not all data samples had a quotechar ending on 'whiteSpace' but on "breakline". 
 
 -    list(csv.reader(csvfile, delimiter=',', quotechar='\n')
 -    list(csv.reader(csvfile, delimiter=',', quotechar=' ')
 
-I had doubts on how to proceed on this. Finally, I took the decision on skipping the data with no complete values and taking only data with quotechar ending in '\n'
-
+This fact affected the result of our algorithms. As I had doubts on how to proceed on this,  I took the decision on skipping the data with no complete values and taking only data with quotechar ending in '\n'
 
 #### - How many Black & White and color movies are in the list?
 - 5024 Black and White and color movies are present - elapsed time : 6 ms
 - 4815  Black and White and color movies are present - elapsed time : 3.9 ms 
 
 #### -  How many movies were produced by director in the list?
-Histogram on Directors field - Displayed first results <br/>
+Directors Histogram - Displaying first 10 results only <br/>
 <br/>
 Steven Spielberg : 26 :  <br/>
 Woody Allen : 22 :  <br/>
