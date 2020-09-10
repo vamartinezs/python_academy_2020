@@ -45,6 +45,12 @@ def create_ranking_authors_from_list(dict, elements_list):
     return dict
 
 
+def filter_movie_title(titles):
+    for mov in titles:
+        mov = mov.replace('[', " ").replace(']', "").replace('\\xa0', '').replace(" \\' ", "").replace("  ", " ").split()
+    return titles
+
+
 def filter_dictionary_keys_as_numbers(dictionary):
     wrong = []
     for key in dictionary.keys():
@@ -52,4 +58,16 @@ def filter_dictionary_keys_as_numbers(dictionary):
             wrong.append(key)
     for i in wrong:
         del dictionary[i]
+
+
+def find_sum_if_repeated(list):
+    unrepeated = {}
+    for element in list:
+        if element[0] in unrepeated:
+            unrepeated[element[0]] += int(element[1]) if str.isdigit(element[1]) else 0
+        else:
+            unrepeated[element[0]] = int(element[1])
+    return [(k, v) for k, v in unrepeated.items()]
+
+
 

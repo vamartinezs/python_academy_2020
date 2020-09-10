@@ -9,7 +9,7 @@ import time
 # Author : Victor Alfonso Martínez Solarte
 # Description : Python Academy 2020 - Globant
 # **************************************************
-
+from movie.data_helpers.printers.print_helpers import print_array
 
 MOVIE_DATASET_PATH = "dataset/movie_metadata.csv"
 movie_dataset = get_movie_dataset(MOVIE_DATASET_PATH)
@@ -17,133 +17,202 @@ movie_dataset = get_movie_dataset(MOVIE_DATASET_PATH)
 dataset_title = movie_dataset[0]
 dataset_samples_number = len(movie_dataset)
 
-# ======================================================================================================================
-# - How many Black & White and color movies are in the list?
+# =====================================================================================================================
+print("# =============================================================================================================")
+print("- How many Black & White and color movies are in the list?")
 
 start = time.time()
 
 all_color_types = set([(movie_dataset[x][0]) for x in range(1, dataset_samples_number)])
-all_color_types ={'', 'Color', 'Blackand White'}
+all_color_types = {'', 'Color', 'Blackand White'}
 
 black_and_white_counter = sum([(movie_dataset[x][0] == 'Blackand White' or movie_dataset[x][0] == 'Color')
                                for x in range(1, dataset_samples_number)])
 elapsed_time = time.time() - start
 
-
-print("Number of Black and White Movies : {} - Elapsed time : {} seconds".format(black_and_white_counter, elapsed_time))
+print("Number of Black and White Movies : {} - Elapsed time : {} seconds \n\n".format(black_and_white_counter,
+                                                                                      elapsed_time))
+# ==== Result ======
 # 5024 Black and White and color movies are present - elapsed time : 6 ms
+
+
 # ======================================================================================================================
-# How many movies were produced by director in the list?
+print("# =============================================================================================================")
+print("How many movies were produced by director in the list?")
 start = time.time()
 
 all_directors_list = [(movie_dataset[x][1]) for x in range(1, dataset_samples_number)]
 director_occurrences = get_histogram_of(all_directors_list)
-director_occurrences = [(k, director_occurrences[k]) for k in sorted(director_occurrences, key=director_occurrences.get, reverse=True)]
+director_occurrences = [(k, director_occurrences[k]) for k in
+                        sorted(director_occurrences, key=director_occurrences.get, reverse=True)]
+director_occurrences = list(filter(lambda n: n[0] != '', director_occurrences))
 elapsed_time = (time.time() - start)
 
-# Director Histograms - 6.8 ms
-print("Director per movie quantity {}, \n\n Elapsed time : {} seconds ".format(director_occurrences, elapsed_time))
+print(print_array(director_occurrences[:10]))
+print("Elapse time in Seconds ", elapsed_time)
+# ==== Result ====
+#Steven Spielberg : 26 :
+#Woody Allen : 22 :
+#Martin Scorsese : 20 :
+#Clint Eastwood : 20 :
+#Ridley Scott : 17 :
+#Tim Burton : 16 :
+#Steven Soderbergh : 16 :
+#Spike Lee : 16 :
+#Renny Harlin : 15 :
+#Oliver Stone : 14 :
 
 # ======================================================================================================================
-# Which are the 10 less criticized movies in the list?
+print("# =============================================================================================================")
+print("Which are the 10 less criticized movies in the list?")
 
 start = time.time()
 
 all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_number)]
+all_movies_titles = filter_movie_title(all_movies_titles[:])
 all_movies_critics = [(movie_dataset[x][2]) for x in range(0, dataset_samples_number)]
-
-titles_critics = [(all_movies_titles[k], all_movies_critics[k]) for k in range(1, dataset_samples_number-1)]
+titles_critics = [(all_movies_titles[k], all_movies_critics[k]) for k in range(1, dataset_samples_number-2)]
 titles_critics = list(filter(lambda k: k[0] != '' and k[1] != '', titles_critics))
-titles_critics.sort(key=lambda x: int(x[1]), reverse=False)
+titles_critics = find_sum_if_repeated(titles_critics)
+titles_critics.sort(key=lambda x: x[1], reverse=False)
 titles_critics = titles_critics[0:10]
 
-elapsed_time = (time.time() - start)
 
-print("10 less criticized movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_critics, elapsed_time))
-#10 less criticized movies are : '
-#' [('Godzilla Resurgence\xa0', '1'), ('Harry Potter and the Deathly Hallows: Part II\xa0', '1'), ('Godzilla Resurgence\xa0', '1'), ('Ben-Hur\xa0', '1'), ('Ben-Hur\xa0', '1'), ('The Border\xa0            ', '1'), ('10 Days in a Madhouse\xa0', '1'), ('The Bold and the Beautiful\xa0            ', '1'), ('Barfi\xa0', '1'), ('Ben-Hur\xa0', '1')]
-#Elapsed time 0.012679100036621094 seconds
+print("10 less criticized movies are :")
+print_array(titles_critics)
+elapsed_time = (time.time() - start)
+print("Elapse time in Seconds", elapsed_time)
+# ==== Result ====
+# 10 less criticized movies are : '
+# The Border              : 1 :
+# 10 Days in a Madhouse  : 1 :
+# The Bold and the Beautiful              : 1 :
+# Barfi  : 1 :
+# Down for Life  : 1 :
+# The Secret              : 1 :
+# The Opposite Sex  : 1 :
+# Brave New Girl  : 1 :
+# Sardaar Ji  : 1 :
 
 # ======================================================================================================================
-# Which are the 20 longest-running movies in the list?
+print("================================================================================================================")
+print("Which are the 20 longest-running movies in the list?")
 
 start = time.time()
 
 all_movies_duration = [(movie_dataset[x][3]) for x in range(0, dataset_samples_number)]
-titles_duration = [(all_movies_titles[k], all_movies_duration[k]) for k in range(1, dataset_samples_number-1)]
+titles_duration = [(all_movies_titles[k], all_movies_duration[k]) for k in range(1, dataset_samples_number - 1)]
 titles_duration = list(filter(lambda k: k[0] != '' and k[1] != '', titles_duration))
 titles_duration.sort(key=lambda x: int(x[1]), reverse=True)
 titles_duration = titles_duration[0:20]
 
 elapsed_time = (time.time() - start)
-print("20 longest movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_duration, elapsed_time))
+print("20 longest movies are :")
+print_array(titles_duration)
+print("Elapsed time {} seconds ".format(elapsed_time))
+
+# ==== Result =====
+# Trapped              : 511 :
+# Carlos              : 334 :
+# "Blood In : 330 :
+# Heaven's Gate  : 325 :
+# The Legend of Suriyothai  : 300 :
+# Das Boot  : 293 :
+# Apocalypse Now  : 289 :
+# The Company              : 286 :
+# Gods and Generals  : 280 :
+# Gettysburg  : 271 :
 
 # ======================================================================================================================
-# Which are the top 5 movies that raised more money in the list?
+print("================================================================================================================")
+print("Which are the top 5 movies that raised more money in the list?")
 
 start = time.time()
 
 all_movies_profit = [(movie_dataset[x][8]) for x in range(0, dataset_samples_number)]
-titles_profit = [(all_movies_titles[k], all_movies_profit[k]) for k in range(1, dataset_samples_number-1)]
+titles_profit = [(all_movies_titles[k], all_movies_profit[k]) for k in range(1, dataset_samples_number - 1)]
 titles_profit = list(filter(lambda k: k[0] != '' and k[1] != '', titles_profit))
-titles_profit.sort(key=lambda x: int(x[1]), reverse= True)
+titles_profit.sort(key=lambda x: int(x[1]), reverse=True)
 titles_profit = titles_profit[0:5]
 
 elapsed_time = (time.time() - start)
 
-print("5 more profitable movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_profit, elapsed_time))
-# [('Avatar\xa0', '760505847'), ('Titanic\xa0', '658672302'), ('Jurassic World\xa0','652177271')
-#  ('The Avengers\xa0', '623279547'), ('The Avengers\xa0', '623279547')]
+print_array(titles_profit)
+print("Elapsed time {} seconds ".format(elapsed_time))
+
+# ==== Result ====
+# Avatar  : 760505847 :
+# Titanic  : 658672302 :
+# Jurassic World  : 652177271 :
+# The Avengers  : 623279547 :
+# The Avengers  : 623279547 :
 
 # ======================================================================================================================
-# Which are the top 5 movies that made the least money in the list?
+print(" ==============================================================================================================")
+print(" Which are the top 5 movies that made the least money in the list?")
 start = time.time()
 
-titles_profit = [(all_movies_titles[k], (all_movies_profit[k])) for k in range(1, dataset_samples_number-1)]
+titles_profit = [(all_movies_titles[k], (all_movies_profit[k])) for k in range(1, dataset_samples_number - 1)]
 titles_profit = list(filter(lambda k: k[0] != '' and k[1] != '', titles_profit))
 titles_profit.sort(key=lambda x: int(x[1]), reverse=False)
 titles_profit = titles_profit[0:5]
 
 elapsed_time = (time.time() - start)
-
-print("5 less profitable movies are : '\n' {} \n\nElapsed time {} seconds ".format(titles_profit, elapsed_time))
+print_array(titles_profit)
+print("Elapsed time {} seconds ".format(elapsed_time))
 # == Result ==
-# ' [('Skin Trade\xa0', '162'), ('The Jimmy Show\xa0', '703'), ('In Her Line of Fire\xa0', '721'),
-# ('Out of the Blue\xa0', '728'), ("Perrier's Bounty\xa0", '828')]
-
+# Skin Trade  : 162 :
+# The Jimmy Show  : 703 :
+# In Her Line of Fire  : 721 :
+# Out of the Blue  : 728 :
+# Perrier's Bounty  : 828 :
+# Elapsed time 0.00522613525390625 seconds
 
 # ======================================================================================================================
-# Which are the top 3 movies that expend more money to be produced in the list?
+print(" ==============================================================================================================")
+print("Which are the top 3 movies that expend more money to be produced in the list?")
 
 start = time.time()
 
 all_movies_budget = [(movie_dataset[x][22]) for x in range(0, dataset_samples_number)]
-titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number-1)]
+titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number - 1)]
 titles_budget = list(filter(lambda k: k[0] != '' and k[1] != '' and str.isdigit(k[1]), titles_budget))
 titles_budget.sort(key=lambda x: float(x[1]), reverse=True)
 titles_budget = titles_budget[0:3]
 
 elapsed_time = (time.time() - start)
 
-print("Top 3 more expensive movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
-# Top 3 more expensive movies : '
-# ' [('The Host\xa0', '12215500000'), ('Lady Vengeance\xa0', '4200000000'), ('Fateless\xa0', '2500000000')]
+print_array(titles_budget)
+print("Elapsed time {} seconds ".format( elapsed_time))
+# ===== Results ======
+# The Host  : 12215500000 :
+# Lady Vengeance  : 4200000000 :
+# Fateless  : 2500000000 :
+# Elapsed time 0.006414890289306641 seconds
 
 # ======================================================================================================================
-# Which are the top 3 movies that expend less money to be produced in the list?
+print(" ==============================================================================================================")
+print(" Which are the top 3 movies that expend less money to be produced in the list?")
 start = time.time()
 
-titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number-1)]
+titles_budget = [(all_movies_titles[k], (all_movies_budget[k])) for k in range(1, dataset_samples_number - 1)]
 titles_budget = list(filter(lambda k: k[0] != '' and k[1] != '' and str.isdigit(k[1]), titles_budget))
 titles_budget.sort(key=lambda x: float(x[1]), reverse=False)
 titles_budget = titles_budget[0:3]
 
 elapsed_time = (time.time() - start)
-# == Result
-print("Top 3 low cost movies : '\n' {} \n\nElapsed time {} seconds ".format(titles_budget, elapsed_time))
+print_array(titles_budget)
+print("Elapsed time {} seconds ".format(elapsed_time))
+
+# ==== Result ====
+# Tarnation  : 218 :
+# A Plague So Pleasant  : 1400 :
+# The Mongol King  : 3250 :
+# Elapsed time 0.004722118377685547 seconds
 
 # ======================================================================================================================
-# What year was the one who had more movies released ?
+print(" ==============================================================================================================")
+print("What year was the one who had more movies released ?")
 start = time.time()
 
 all_release_year_list = [(movie_dataset[x][23]) for x in range(1, dataset_samples_number)]
@@ -153,6 +222,8 @@ year_occurrences = year_occurrences[0]
 elapsed_time = (time.time() - start)
 
 print("The year with more movies releases was : '\n' {} \n\nElapsed time {} seconds ".format(year_occurrences, elapsed_time))
+
+# ==== Result =====
 # ('2009', 255)
 
 # What year was the one who had less movies released ?
@@ -160,18 +231,25 @@ start = time.time()
 all_release_year_list = [(movie_dataset[x][23]) for x in range(1, dataset_samples_number)]
 year_occurrences = get_histogram_of(all_release_year_list)
 year_occurrences = [(k, year_occurrences[k]) for k in sorted(year_occurrences, key=year_occurrences.get, reverse=False)]
-year_occurrences = list(filter(lambda k: k[0] != '' and k[1] != '' and len(k[0])==4, year_occurrences))
+year_occurrences = list(filter(lambda k: k[0] != '' and k[1] != '' and len(k[0]) == 4, year_occurrences))
 year_occurrences = year_occurrences[0]
 elapsed_time = (time.time() - start)
 
-# == Result
-print("The year with less movies releases was {} with {} movie(s)".format(year_occurrences[0],year_occurrences[1]))
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print("The year with less movies releases was {} with {} movie(s)".format(year_occurrences[0], year_occurrences[1]))
 print("Elapse time in Seconds ", elapsed_time)
-## ======================================================================================================================
-# Create a actor ranking ordered by number of performances by:
-# - Number of movies where the actor performed
-# - Social Media Influence
-# - Best Movie
+
+# ==== Result =====
+# The year with less movies releases was 1927 with 1 movie(s)
+# Elapse time in Seconds  0.0018548965454101562
+
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print(""" Create a actor ranking ordered by number of performances by:")
+    - Number of movies where the actor performed")
+    - Social Media Influence
+    - Best Movie """)
 
 start = time.time()
 
@@ -216,7 +294,7 @@ actors_ranking = [sorted(actors_ranking.values(), key=lambda x: (x[1], x[2], x[3
 elapsed_time = (time.time() - start)
 
 print("Actor ranking : ")
-for actor in actors_ranking[0][:4]: print(actor) # Change this parameter in case of watching all the results
+for actor in actors_ranking[0][:4]: print(actor)  # Change this parameter in case of watching all the results
 print("Elapsed time : ", elapsed_time)
 
 # == Result
@@ -228,15 +306,17 @@ print("Elapsed time : ", elapsed_time)
 # Elapsed time : 0.08010411262512207
 
 
-## ======================================================================================================================
-
-# Create a “tag cloud” using tags or keywords of the movie: To do this you can create an ordered ranking
-# of the number of word occurrences.
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print("""" Create a “tag cloud” using tags or keywords of the movie: To do this you can create an ordered ranking 
+of the number of word occurrences """)
 
 start = time.time()
 
 # Filter titles
-all_movies_titles = str(''.join(all_movies_titles)).strip('[]').replace('\\xa0', ' ').replace(" \\' "," ").replace("  ", " ")
+all_movies_titles = [(movie_dataset[x][11]) for x in range(0, dataset_samples_number)]
+all_movies_titles = str(''.join(all_movies_titles)).strip('[]').replace('\\xa0', ' ').replace(" \\' ", " ").replace(
+    "  ", " ")
 
 str_list = all_movies_titles.split()
 
@@ -246,15 +326,14 @@ words_ocurrences = {}
 
 for words in unique_words:
     words_ocurrences[words] = str_list.count(words)
-words_ocurrences = {k: v for k, v in sorted(words_ocurrences.items(), key=lambda item: item[1], reverse= True)}
-
+words_ocurrences = {k: v for k, v in sorted(words_ocurrences.items(), key=lambda item: item[1], reverse=True)}
 
 elapsed_time = (time.time() - start)
 
 print("Ordered raking based on Keywords Titles recurrences")
-for i in words_ocurrences :
-     print(i, words_ocurrences[i])
-
+for i,v in enumerate(words_ocurrences):
+    if i > 20 : break
+    print(v, words_ocurrences[v])
 
 # == Result
 print("Elapsed time : ", elapsed_time)
@@ -265,12 +344,12 @@ print("Elapsed time : ", elapsed_time)
 # A 101
 # in 100
 # to 99
-# Elapsed time :  1.029115915298462
+# Elapsed time :  1.129115915298462
 
-
-## ======================================================================================================================
-# What movie genre raised more money per year?
-# What movie genre raised less money per year?
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print(" What movie genre raised more money per year?")
+print(" What movie genre raised less money per year?")
 
 start = time.time()
 
@@ -286,25 +365,26 @@ for item in genre_profit_year:
     if item[0] != '' and item[1] != '' and item[2] != '' and len(item[2]) == 4:
         filtered.append([item[0], item[1], item[2]])
 
-
 # Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
 total_data = []
 
 for i, v in enumerate(filtered):
     s = str(filtered[i][0]).split("|")
-    if len(s) == 1:        total_data.append((s[0], filtered[i][1], filtered[i][2]))
+    if len(s) == 1:
+        total_data.append((s[0], filtered[i][1], filtered[i][2]))
     else:
         for i in range(filtered[i][0].count("|")):
             total_data.append((s[i], filtered[i][1], filtered[i][2]))
 
 years = {}
-for i,genre_profit in enumerate(total_data):
+for i, genre_profit in enumerate(total_data):
     if genre_profit[2] in years:
         if genre_profit[1] in years:
             years[genre_profit[2]][genre_profit[0]] = years[genre_profit[2]][genre_profit[0]] + genre_profit[1]
-        else:            years[genre_profit[2]][genre_profit[0]] = genre_profit[1]
+        else:
+            years[genre_profit[2]][genre_profit[0]] = genre_profit[1]
     else:
-        years[genre_profit[2]] = {genre_profit[0]:genre_profit[1]}
+        years[genre_profit[2]] = {genre_profit[0]: genre_profit[1]}
 
 elapsed_time = (time.time() - start)
 
@@ -325,8 +405,9 @@ print("Elapse time in seconds : ", elapsed_time)
 # Raised less money in  2007 Western
 # ==
 
-## ======================================================================================================================
-# What movie genre does the public like most?
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print(" What movie genre does the public like most?")
 
 start = time.time()
 all_movies_genres = all_movies_genres
@@ -340,7 +421,6 @@ for item in genre_likes:
     if item[0] != '' and item[1] != '':
         filtered.append([item[0], int(item[1]) if str.isdigit(item[1]) else 0])
 
-
 # Split Genres - Money Raised - Year in the form of ('Fantasy', '200074175', '2015')
 total_data = []
 
@@ -352,7 +432,6 @@ for i, v in enumerate(filtered):
         for i in range(filtered[i][0].count("|")):
             total_data.append((s[i], filtered[i][1]))
 
-
 genres_collection = {}
 for i, genre_likes in enumerate(total_data):
     if genre_likes[0] in genres_collection:
@@ -363,7 +442,8 @@ for i, genre_likes in enumerate(total_data):
 elapsed_time = (time.time() - start)
 print("More Liked Movies by the Community ")
 
-for k in sorted(genres_collection, key=genres_collection.get, reverse=True):
+for i,k in enumerate(sorted(genres_collection, key=genres_collection.get, reverse=True)):
+    if i == 5 : break
     print(k, genres_collection[k])
 
 print("Elapse timme in seconds ", elapsed_time)
@@ -376,8 +456,9 @@ print("Elapse timme in seconds ", elapsed_time)
 # Family 19189809
 # Mystery 15435951
 
-## ======================================================================================================================
-# Which are the top five best reputation directors?
+# ======================================================================================================================
+print(" ==============================================================================================================")
+print(" Which are the top five best reputation directors?")
 
 start = time.time()
 
@@ -391,16 +472,16 @@ directors_collection = {}
 
 for i, v in enumerate(directors_critics):
     if v[0] in directors_collection:
-        directors_collection[v[0]] = directors_collection[v[0]]+v[1]
+        directors_collection[v[0]] = directors_collection[v[0]] + v[1]
     else:
         directors_collection[v[0]] = v[1]
 
 elapsed_time = (time.time() - start)
 
-for k in sorted(directors_collection, key= directors_collection.get, reverse= True):
+for i,k in enumerate(sorted(directors_collection, key=directors_collection.get, reverse=True)):
+    if i == 5: break
     print(k, directors_collection[k])
 
-print("The Top five Directors are : ")
 print("Elapse time in seconds", elapsed_time)
 
 # Steven Spielberg 6582
