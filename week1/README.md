@@ -22,31 +22,31 @@ I had doubts on how to proceed on this. Finally, I took the decision on skipping
 - 4815  Black and White and color movies are present - elapsed time : 3.9 ms 
 
 #### -  How many movies were produced by director in the list?
-Histogram on Directors field - Displayed first results
-
-Steven Spielberg : 26 :  
-Woody Allen : 22 :  
-Martin Scorsese : 20 :  
-Clint Eastwood : 20 :  
-Ridley Scott : 17 :  
-Tim Burton : 16 :  
-Steven Soderbergh : 16 :  
-Spike Lee : 16 :  
-Renny Harlin : 15 :  
-Oliver Stone : 14 : 
-
-Elapsed time :  6.8 ms
+Histogram on Directors field - Displayed first results <br/>
+<br/>
+Steven Spielberg : 26 :  <br/>
+Woody Allen : 22 :  <br/>
+Martin Scorsese : 20 : <br/>
+Clint Eastwood : 20 :  <br/>
+Ridley Scott : 17 :  <br/>
+Tim Burton : 16 :  <br/>
+Steven Soderbergh : 16 :  <br/>
+Spike Lee : 16 :  <br/>
+Renny Harlin : 15 : <br/>
+Oliver Stone : 14 : <br/>
+<br/>
+Elapsed time :  6.8 ms 
 
 
 #### - Which are the 10 less criticized movies in the list?
 
-10 less criticized movies are :
-Harry Potter and the Deathly Hallows: Part II  : 1 :  
-The Border              : 1 :  
-10 Days in a Madhouse  : 1 :  
-The Bold and the Beautiful              : 1 :  
-Barfi  : 1 :  
-Down for Life  : 1 :  
+10 less criticized movies are : <br/>
+Harry Potter and the Deathly Hallows: Part II  : 1 :  <br/>
+The Border              : 1 :  <br/>
+10 Days in a Madhouse  : 1 :  \\
+The Bold and the Beautiful              : 1 :  \\
+Barfi  : 1 :  \\
+Down for Life  : 1 :  \\
 The Secret              : 1 :  
 The Opposite Sex  : 1 :  
 Brave New Girl  : 1 :  
@@ -55,10 +55,10 @@ Elapse time in Seconds 0.014646053314208984
  
 #### - Which are the 20 longest-running movies in the list?
 
-20 longest movies are :
-Trapped              : 511 :  
-Carlos              : 334 :  
-"Blood In : 330 :  
+20 longest movies are :<br/>
+Trapped              : 511 : <br/>  
+Carlos              : 334 :  <br/>
+"Blood In : 330 :  <br/>
 Heaven's Gate  : 325 :  
 The Legend of Suriyothai  : 300 :  
 Das Boot  : 293 :  
@@ -81,12 +81,12 @@ Elapsed time 0.006849050521850586 seconds
 Elapsed time 0.0059680938720703125 seconds 
 
 #### Which are the top 5 movies that raised more money in the list?
-Avatar  : 760505847 :  
-Titanic  : 658672302 :  
-Jurassic World  : 652177271 :  
-The Avengers  : 623279547 :  
-The Avengers  : 623279547 :  
-Elapsed time 0.006031990051269531 seconds 
+Avatar  : 760505847 :  <br/>
+Titanic  : 658672302 :  <br/>
+Jurassic World  : 652177271 :<br/>  
+The Avengers  : 623279547 :  <br/>
+The Avengers  : 623279547 :  <br/>
+Elapsed time 0.006031990051269531 seconds <br/>
 
 #### Which are the top 5 movies that made the least money in the list?
 Skin Trade  : 162 :  
