@@ -197,6 +197,16 @@ Elapsed time :  1.029115915298462 Seconds
 
 Elapse time in seconds :  0.021592140197753906
 
+
+#### Top five ranking of actors by performance and popularity
+
+Emma Stone (50195000, 3.50250244140625)<br/>
+Woo-sung Jung (10000149, 3.45)<br/>
+Johnny Depp (1640000, 6.568560059206175)<br/>
+Robin Williams (1323000, 6.438453915715218)<br/>
+Laura San Giacomo (1200000, 0)<br/>
+Elapse time in seconds :  0.051878929138183594<br/>
+
 #### What movie genre does the public like most?
 More Liked Movies by the Community <br/>
 Drama 55762519<br/>
