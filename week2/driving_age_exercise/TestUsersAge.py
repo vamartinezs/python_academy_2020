@@ -1,7 +1,6 @@
 import unittest
-
 from week2.driving_age_exercise.Register import Register
-from unittest.mock import patch
+
 
 class TestUsersAge(unittest.TestCase):
 
