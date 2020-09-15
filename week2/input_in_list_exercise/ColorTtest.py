@@ -1,8 +1,7 @@
 from unittest.mock import patch
 
-from week2.input_in_list.Colors import instantiate_color
-from week2.input_in_list.Colors import Colors
-
+from week2.input_in_list_exercise.Colors import instantiate_color
+from week2.input_in_list_exercise.Colors import Colors
 
 def test_color_blue():
     # mock an object of class
