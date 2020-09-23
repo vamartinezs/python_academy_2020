@@ -25,6 +25,10 @@ class ManagerCsv:
         self.writer = SaverCSV(self.file_path)
         self.writer.write_employees(self.file_path,employees)
 
+    def update_csv_filee(self,employees=None):
+        self.writer = SaverCSV(self.file_path)
+        self.writer.update_employees(self.file_path,employees)
+
     def get_csv_info(self, file_path=None):
         self.info = InformCSV(file_path)
         return self.info.get_data_information(self.file_path)

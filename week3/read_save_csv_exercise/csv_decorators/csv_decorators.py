@@ -44,6 +44,16 @@ def write_employees_records(file_path=None, employees=None):
         employee_file.flush()
         employee_file.close()
 
+@save_csv_reader
+def update_employees_records(file_path=None, employees = None):
+    print(file_path)
+    with open(file_path, mode='w') as employee_file:
+        employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for employee in employees:
+            employee_writer.writerow(employee.get_raw_data())
+        employee_file.flush()
+        employee_file.close()
+
 
 def get_file_information(file_path=None):
     employees = get_employees(file_path)

@@ -37,7 +37,7 @@ employees_list = [Employee(
     employee.name, employee.age, employee.phone, employee.address, employee.country, next(id_generator))
     for employee in employees_list]
 
-csv_manager.write_csv_file(employees_list)
+csv_manager.update_csv_filee(employees_list)
 
 print("\nREAD Employees list with ID's")
 csv_manager.read_csv_file()
