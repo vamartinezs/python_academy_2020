@@ -1,4 +1,4 @@
-from week3.read_save_csv_exercise.Employee import Employee
+from week3.read_save_csv_exercise.model.Employee import Employee
 from week3.read_save_csv_exercise.csv_helpers import ManagerCSV
 
 

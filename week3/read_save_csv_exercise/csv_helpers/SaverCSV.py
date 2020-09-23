@@ -1,4 +1,3 @@
-from week3.read_save_csv_exercise.Employee import Employee
 from week3.read_save_csv_exercise.csv_decorators.csv_decorators import write_employees_records, update_employees_records
 
 
