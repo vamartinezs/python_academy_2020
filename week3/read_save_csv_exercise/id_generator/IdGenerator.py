@@ -27,5 +27,5 @@ class IdGenerator:
 
 
     def id_ordered_generator(self, list_length ):
-        for i in range(1,list_length):
+        for i in range(1,list_length+1):
             yield self.create_id()

@@ -31,7 +31,7 @@ csv_manager.get_csv_info()
 
 employees_list = csv_manager.read_csv_file()
 length_employees = len(employees_list)
-id_generator = IdGenerator().id_ordered_generator(length_employees+1)
+id_generator = IdGenerator().id_ordered_generator(length_employees)
 
 employees_list = [Employee(
     employee.name, employee.age, employee.phone, employee.address, employee.country, next(id_generator))
