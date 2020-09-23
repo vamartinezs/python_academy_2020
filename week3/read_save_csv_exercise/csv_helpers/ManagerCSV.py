@@ -19,7 +19,7 @@ class ManagerCsv:
 
     def read_csv_file(self):
         self.reader = ReaderCSV(self.file_path)
-        self.reader.get_employees(self.file_path)
+        return self.reader.get_employees(self.file_path)
 
     def write_csv_file(self, employees=None):
         self.writer = SaverCSV(self.file_path)
@@ -27,4 +27,4 @@ class ManagerCsv:
 
     def get_csv_info(self, file_path=None):
         self.info = InformCSV(file_path)
-        self.info.get_data_information(self.file_path)
+        return self.info.get_data_information(self.file_path)

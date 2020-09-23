@@ -28,7 +28,9 @@ def get_employees(file_path):
         list_employees = []
         csv_reader = csv.reader(csv_file, delimiter=',')
         for row in csv_reader:
-            list_employees.append(Employee(row[0], row[1], row[2], row[3], row[4]))
+            list_employees.append(Employee(row[0], row[1], row[2], row[3], row[4],row[5]))
+        csv_file.flush()
+        csv_file.close()
         return list_employees
 
 
@@ -39,6 +41,8 @@ def write_employees_records(file_path=None, employees=None):
         employee_writer = csv.writer(employee_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for employee in employees:
             employee_writer.writerow(employee.get_raw_data())
+        employee_file.flush()
+        employee_file.close()
 
 
 def get_file_information(file_path=None):
