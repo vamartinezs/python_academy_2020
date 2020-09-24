@@ -13,7 +13,7 @@ And the wrappers were added in order to manage the data. We've got the following
 
 Finally we used InformCSV methods to get measures over the Employees population in between age and origin histograms.
 
-## Exercise 2
+## Exercise3
 ### In the CSV created above, create a new column called Employee ID, fill this column with an unique ID combination of two numbers. Tip: Create a Generator who construct this info. Maintain a Cache on generator to know if the generated ID is used already
  
 The new Column ID was filled with the ID employee generator by caching the records to avoid id's repetition
@@ -24,7 +24,7 @@ idGenerator class is in charge of handling these details.
 Note : I was not sure on how to create an attribute dynamically to the Employee class. 
 I'll search for it and correct it in future.
 
-## Exercise 3
+## Exercise 4
 ### Create a Logging Class for generator, write a log with the number of times the generator is been called and how many times the Id is repeated. Tip: To do the Logger class you can use the Singleton or an observer pattern.
 
 A singleton class was implemented in charge of storing the instances and Id's records. As it's 
