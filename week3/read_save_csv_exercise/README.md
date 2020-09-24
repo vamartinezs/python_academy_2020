@@ -2,7 +2,7 @@
 
 ### Create a wrapper to mask the implementation of a CSV File Reader, it can read, save, and return the information of the file, you can try it creating a CSV File with Employee Information:Name, Phone, Address, Country with random information.
 
-The Facade Pattern was followed by creating a manager in charge of handling the different CSV requests:
+The Facade Pattern was followed by creating a ManagerCSV in charge of handling the different CSV requests provide by the following subsystems:
   - ReaderCSV
   - SaverCSV
   - InformCSV
