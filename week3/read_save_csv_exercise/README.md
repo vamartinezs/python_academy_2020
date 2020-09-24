@@ -10,6 +10,7 @@ The Facade Pattern was followed by creating a manager in charge of handling the 
   - InformCSV
 
 And the wrappers were added in order to manage the data. 
+
 <img src="../images/persistance.png" width="500"/>
 
  
