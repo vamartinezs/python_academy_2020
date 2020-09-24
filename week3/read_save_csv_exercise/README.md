@@ -13,7 +13,7 @@ And the wrappers were added in order to manage the data.
 
 <img src="../images/persistance.png" width="500"/>
 
-Finally we used InformCSV methods to get measures of the Employees as the most common age and origin
+Finally we used InformCSV methods to get measures over the Employees population in between age and origin histograms.
 
 ### In the CSV created above, create a new column called Employee ID, fill this column with a
 ### unique ID combination of two numbers.
