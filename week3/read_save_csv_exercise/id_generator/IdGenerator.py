@@ -1,4 +1,8 @@
 import random
+from week3.read_save_csv_exercise.utils.GeneratorLogger import GeneratorLogs
+
+# Create Logger Instance
+generator_id_logger = GeneratorLogs()
 
 
 class IdGenerator:
@@ -9,12 +13,15 @@ class IdGenerator:
         self.stored_keys = set([])
 
     def create_id(self):
+        generator_id_logger.info_calls(" Times Generator was Called ")
         while True:
             id_option = self.id_generator()
             if id_option not in self.stored_keys:
                 self.stored_keys.add(id_option)
                 return id_option
                 break
+            else:
+                generator_id_logger.info_ids(" Times ID was repeated")
 
     def retrieve_ids(self):
         return self.stored_keys
