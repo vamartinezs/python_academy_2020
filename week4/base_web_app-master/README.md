@@ -6,15 +6,15 @@
 ## Project Composition : 
 
 #### Flask Backend plus Sql DB for users and products. 
-<img src='static/users.png' width="200">
+<img src='static/users.png' width="400">
 
 User is able to store products 
 
-<img src='static/users2.png' width="200">
+<img src='static/users2.png' width="400">
 
 And Also products table is able to store one user as the relation one-to-one was specified 
 
-<img src='static/product.png' width="200">
+<img src='static/product.png' width="400">
 
 Also the front works for login user if it's valid.
 
