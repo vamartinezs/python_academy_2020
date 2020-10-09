@@ -1,9 +1,5 @@
-# from app import db
-# from .currency import CurrencyEnum
-
-from ..app import db
+from app import db
 from .currency import CurrencyEnum
-import json
 
 
 class Products(db.Model):

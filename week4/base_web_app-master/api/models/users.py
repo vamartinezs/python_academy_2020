@@ -1,10 +1,5 @@
-from ..app import db
 from .products import Products
-import json
-
-
-# from .products import Products
-# from app import db
+from app import db
 
 
 class Users(db.Model):

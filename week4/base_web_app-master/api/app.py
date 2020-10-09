@@ -5,8 +5,8 @@ import json
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-# from config import Config
-from api.config import Config
+#from config import Config
+from config import Config
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -19,45 +19,14 @@ db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
 
-from api.models import users  # Included at the end of the imports to avoid circular imports Issue
-from api.models import products
 
-
-# from models import users  # Included at the end of the imports to avoid circular imports Issue
-# from models import products
+from models import users  # Included at the end of the imports to avoid circular imports Issue
+from models import products
 
 
 @app.route('/', methods=['GET'])
 def home():
     return render_template("index.html", content=None)
-
-
-# @app.route("/<name>")
-# def user(name):
-#    return f"Hello {name}!"
-
-
-# @app.route("/secondary/<usrname>/")
-# @app.route('/secondary/<string:usrname>', defaults={"my_age": None})
-# @app.route('/secondary/<string:usrname>/<int:my_age>')
-# def secondary_name(usrname, my_age =None):
-#    if my_age is None : my_age = "Unknown"
-#    return render_template("user.html", content=usrname, age = my_age)
-
-
-# @app.route("/admin/")
-# def admin():
-#    return redirect(url_for("user", name="Admin!"))
-
-
-# @app.route("/admins/")
-# def admins():
-#    return render_template("admins.html", content=["Luis", "Juan", "Pedro"])
-
-
-# @app.route("/example")
-# def example():
-#    return render_template("example.html")
 
 
 @app.route("/users", methods=["GET"])
