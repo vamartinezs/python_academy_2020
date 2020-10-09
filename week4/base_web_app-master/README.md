@@ -1,11 +1,12 @@
 # Shoping Cart Base
 ## This is the root app to start the project, is mounted on Python 3.7 with cutting edge Flask, Flask-alchemy and Flasks Migrations.
 
-#### The Front is based on BootStrap components and backend is mainly based on Flask. No time for Django.
-
 ## Project Composition : 
+#### The Front is based on BootStrap components and backend is mainly based on Flask. No time for Django. In overall,we have the following components:
+
 - DB
 - Functional Flask endpoints
+- Bootstrap for the Front
 
 #### Flask Backend plus Sql DB for users and products. 
 <img src='static/users.png' width="400">
