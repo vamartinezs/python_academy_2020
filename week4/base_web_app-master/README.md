@@ -1,28 +1,34 @@
 # Shoping Cart Base
 ## This is the root app to start the project, is mounted on Python 3.7 with cutting edge Flask, Flask-alchemy and Flasks Migrations.
 
-#### The Front is composed for some BootStrap components and backend is mainly based on Flask. 
+#### The Front is based on BootStrap components and backend is mainly based on Flask. No time for Django.
 
 ## Project Composition : 
+- DB
+- Functional Flask endpoints
 
 #### Flask Backend plus Sql DB for users and products. 
 <img src='static/users.png' width="400">
 
-User is able to store products 
+#### User is able to store products! 
 
 <img src='static/users2.png' width="400">
 
-And Also products table is able to store one user as the relation one-to-one was specified 
+#### Also products table is able to store one user as the relation one-to-one was specified 
 
 <img src='static/product.png' width="400">
 
-Also the front works for login user if it's valid.
+#### The front also has the logic for validating the user, validating if it's a valid user and also storing user credentials under the browser session.
 
-What's missing?
- - JWT for flask
- - Django endpoints
- - JWt for Django. 
- 
+## What's missing?
+ ### - JWT for flask
+ ### - Django endpoints
+ ### - JWt for Django. 
+
+## Notes: 
+#### I deleted the Alembic table inside SQLAlchemy, so versions tracking dissapeared. This was not intentional. It was just tricky to update table names in Alembic and didn't know how to correct it until it was too late. But's it's also functional :D
+
+#### I don't remember any other Issue beesides the "circular import until infinite", "the not finding the venv location" thing and also the relative imports. For the latter I didn't find a simple import tag compatible among the Intellij app and the docker execution. 
  
 
 
