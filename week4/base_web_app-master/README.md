@@ -1,6 +1,38 @@
 # Shoping Cart Base
-This is the root app to start the project, is mounted on Python 3.7 with
-cutting edge Flask, Flask-alchemy and Flasks Migrations.
+## This is the root app to start the project, is mounted on Python 3.7 with cutting edge Flask, Flask-alchemy and Flasks Migrations.
+
+#### The Front is composed for some BootStrap components and backend is mainly based on Flask. 
+
+## Project Composition : 
+
+#### Flask Backend plus Sql DB for users and products. 
+<img src='static/users.png' width="200">
+
+User is able to store products 
+
+<img src='static/users2.png' width="200">
+
+And Also products table is able to store one user as the relation one-to-one was specified 
+
+<img src='static/product.png' width="200">
+
+Also the front works for login user if it's valid.
+
+What's missing?
+ - JWT for flask
+ - Django endpoints
+ - JWt for Django. 
+ 
+ 
+
+
+
+
+
+
+
+
+
 This App is mounted on Docker and Docker Compose, to run it please run:
 
 ```
