@@ -15,7 +15,7 @@
 
 <img src='static/users2.png' width="400">
 
-#### Also products table is able to store one user as the relation one-to-one was specified 
+#### Products table is able to store one user_id as the relation one-to-one was specified. 
 
 <img src='static/product.png' width="400">
 
@@ -35,7 +35,7 @@
 
 
 
-
+## Instructions
 
 
 
