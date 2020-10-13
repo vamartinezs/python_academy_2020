@@ -1,0 +1,21 @@
+Tema                      Querie                                    Peso   Resultado idoneo    Peso 2    Segundo resultado                   Observaciones
+Define a SQL table        How to define a table in sql alchemy?      68%       table_sql()      67%       create_sql()        Not what I expected. Useless information. Returned empty String
+Define a Mongo DB         How to establish a mongo database?         62%       init_db()        61%       setup_databases()   No what I expected. Returned a snippet of SQL query.
+Define a Mongo connection How to make a mongodb connection?          63%       connect()        63%       connect()           Returned sqlite3 connections.
+SqlAlchemy Setup          How to setup alchemy for my sql project?   59%       create_sql()     59%       create_sql()        No what I expected.
+SqlAlchemy table          How to create a table with sqlAlchemy?     71%       to_sql()         70%       pandasSQL_builder() First result was ambigous. The third one was better.
+Handling Circular imports How to avoid circular imports?             64%     test_circular()    63%       test_circular       No useful information. No what I expected.
+Install flask             How to install flask in a virtual envi..?  68%     setup_environ()    67%       virtualenv()        No what I expected. It set up some environment variables.
+Import flask              How to import flask?                       68%     create_app2()      68%       init_app()          No what I expected. Returned the flask application.
+Filter by lambda          How to use lambda for filtering data by age? 60%   set_filter_method() 60%   set_agg_filter()       No what I expected. Returned calls to another functions.
+Lambda filter for 2 attr  What's the lambda function for filtering two attributes? 66% test_lambdas() 65% test_lambda()       Returned snippets of lambdas. No what I expected.
+Wrapper for measuring time How's the wrapper for measuring time execution? 62%  bench()         62%       timeit()            No what I expected. Returned benchmarks based on the number of executions
+Mocking services 	  How to mock a service?                     72%     MockCallBack()     70%     mock_server_class     Returned an Instance of a Mocking class. Not very useful
+Http Assertions           Whats the assertion for a HTTP request?    68%     test_http()        68%     __call__()            A good code snippet was retrieved. Bravo))
+Converting SQL to Json    How convert an SQL object to json?         79%     as_sqlite()        77%           as_sql()        Returned calls to different functions. Not very useful. 
+Create GET request        Whats the command for creating a GET request? 71%  handle_request()   69%         request()         Not what I expected but retrieved an useful example. 
+JWT in request            How to authenticate with JWT?              71%     authenticate()     71%     get_auth_token()      Returned some snippets.Not very clear. It could be better.
+
+
+Thank you very much.  
+
